@@ -1,39 +1,3 @@
-"use strict";
-
-// function getComputerChoice() {
-//   const weapon = Math.trunc(Math.random() * 3) + 1;
-//   if (weapon === 1) return `Rock`;
-//   else if (weapon === 2) return `Paper`;
-//   else if (weapon === 3) return `Scissor`;
-//   else return `ERROR`;
-// }
-
-// function playRound(playerSelection, computerSelection) {
-//   console.log(playerSelection);
-//   //   const capitalizedWord =
-//   //     playerSelection[0].toUpperCase() +
-//   //     playerSelection.substring(1).toLowerCase();
-//   //   playerSelection = capitalizedWord;
-//   return `You loose! ${computerSelection} beats ${playerSelection}`;
-// }
-
-// const playerChoice = "rock";
-// const computerSelection = getComputerChoice();
-// // console.log(playRound(playerSelection, computerSelection));
-
-// function game() {
-//   for (let i = 0; i < 5; i++) {
-//     console.log(`Round: ${i + 1}`);
-//     if (i < 4) {
-//       console.log(playRound());
-//     } else if (i === 4) {
-//       console.log(`Game over`);
-//     }
-//   }
-// }
-
-// game();
-
 /***********************************************************/
 
 //Determines the computers pick
