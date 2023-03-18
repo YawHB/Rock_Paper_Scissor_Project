@@ -14,8 +14,15 @@ function computerPlaying() {
 
 //Register the players choice
 function playerChoice() {
-  const playerWeapon = prompt("Choose Rock, Paper or Scissor");
-  return playerWeapon;
+  const word = prompt("Choose Rock, Paper or Scissor");
+  const firstLetter = word[0].toUpperCase();
+  const restOfWord = word.substring(1).toLowerCase();
+  const playerWeapon = firstLetter + restOfWord;
+  if (playerWeapon || "Rock" || "Paper" || "Scissor") {
+    return playerWeapon;
+  } else {
+    console.log("invalid");
+  }
 }
 
 function playGame() {
@@ -30,19 +37,19 @@ function playGame() {
       playerScore++;
       console.log(`You won round ${i + 1} of 5
       The score is 
-      you: ${playerScore}
-      Computer: ${computerScore}`);
+      you: ${playerScore} (${playerSelection})
+      Computer: ${computerScore} (${computerSelection})`);
     } else if (result === "computer won") {
       computerScore++;
       console.log(`Computer won round ${i + 1} of 5
       The score is 
-      you: ${playerScore}
-      Computer: ${computerScore}`);
+      you: ${playerScore} (${playerSelection})
+      Computer: ${computerScore} (${computerSelection})`);
     } else if (result === "tie") {
       console.log(`Round ${i + 1} was tied.
       The score is 
-      you: ${playerScore}
-      Computer: ${computerScore}`);
+      you: ${playerScore} (${playerSelection})
+      Computer: ${computerScore} (${computerSelection})`);
     }
   }
 
