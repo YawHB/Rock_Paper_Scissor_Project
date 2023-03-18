@@ -18,7 +18,11 @@ function playerChoice() {
   const firstLetter = word[0].toUpperCase();
   const restOfWord = word.substring(1).toLowerCase();
   const playerWeapon = firstLetter + restOfWord;
-  if (playerWeapon || "Rock" || "Paper" || "Scissor") {
+  if (
+    playerWeapon === "Rock" ||
+    playerWeapon === "Paper" ||
+    playerWeapon === "Scissor"
+  ) {
     return playerWeapon;
   } else {
     console.log("invalid");
@@ -56,6 +60,12 @@ function playGame() {
   if (playerScore > computerScore) {
     let finalScore = playerWon(playerScore, computerScore);
     console.log(finalScore);
+  } else if (computerScore > playerScore) {
+    finalScore = computerWon(playerScore, computerScore);
+    console.log(finalScore);
+  } else {
+    finalScore = gameTie(playerScore, computerScore);
+    console.log(finalScore);
   }
 }
 
@@ -75,14 +85,20 @@ function winnerOfRound(playerSelection, computerSelection) {
 
 // Announces that player has won
 function playerWon(you, computer) {
-  return `The final score is
+  return `Congratulations - YOU WON!! The final score is
   You: ${you}
   Computer: ${computer}`;
 }
 
 // Announces that computer has won
 function computerWon(you, computer) {
-  return `The final score is
+  return `Better Luck next time - YOU LOST!! The final score is
+  You: ${you}
+  Computer: ${computer}`;
+}
+
+function gameTie(you, computer) {
+  return `Close but no cigar - IT'S A TIE!! The final score is
   You: ${you}
   Computer: ${computer}`;
 }
