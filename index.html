@@ -8,7 +8,36 @@
     <title>Rock, Paper, Scissors</title>
   </head>
   <body>
-    <h1>Rock, Paper, Scissors</h1>
+    <header>
+      <h1>Rock, Paper, Scissors</h1>
+    </header>
+    <main>
+      <section class="score-board">
+        <article id="score-board-status">
+          <h2 class="round-result">You won this round</h2>
+          <h3 class="round-result-reason">beats</h3>
+        </article>
+        <div class="score-container">
+          <div class="score-box">
+            <div class="sign" id="player-weapon">🪨</div>
+            <p class="score" id="player-score">:</p>
+          </div>
+          <div class="score-box">
+            <div class="sign" id="computer-weapon">✂️</div>
+            <p class="score" id="computer-score">:</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="box-section">
+        <div class="flexbox-container">
+          <div class="rock-box all-boxes">🪨</div>
+          <div class="paper-box all-boxes">📄</div>
+          <div class="scissors-box all-boxes">✂️</div>
+        </div>
+      </section>
+    </main>
+
     <script src="app.js"></script>
   </body>
 </html>

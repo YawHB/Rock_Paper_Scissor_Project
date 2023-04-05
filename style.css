@@ -1,3 +1,79 @@
+html,
 body {
-  background-color: #555;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+}
+
+body {
+  background: rgb(39, 116, 174);
+  background: radial-gradient(
+    circle,
+    rgba(39, 116, 174, 1) 44%,
+    rgba(0, 48, 143, 1) 100%
+  );
+}
+
+#score-board-status {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+
+#score-board-status > h2,
+#score-board-status > h3 {
+  margin: 20px;
+}
+
+.score-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.score-container p {
+  width: 50px;
+  height: 50px;
+  border: 3px solid green;
+}
+
+.score-container,
+.flexbox-container {
+  display: flex;
+  justify-content: center; /*horizontally centers the 3 elements inside the flexbox container 
+  and makes equal space on either side of them.*/
+  align-items: center;
+}
+
+.all-boxes {
+  width: 200px;
+  height: 200px;
+  border: 3px solid black;
+  margin: 30px;
+  background-color: grey;
+}
+
+.rock-box,
+.paper-box,
+.scissors-box {
+  transition: transform 0.5s ease-in-out;
+  font-size: 10rem;
+  text-align: center;
+}
+
+.rock-box:hover {
+  background-color: burlywood;
+  transform: scale(1.05);
+}
+
+.paper-box:hover {
+  background-color: darkcyan;
+  transform: scale(1.05);
+}
+
+.scissors-box:hover {
+  background-color: blueviolet;
+  transform: scale(1.05);
 }
