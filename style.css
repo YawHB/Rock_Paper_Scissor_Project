@@ -124,18 +124,15 @@ body {
 }
 
 .rock-box:hover {
-  background-color: burlywood;
-  transform: scale(1.05);
+  background-color: #fbc02d;
 }
 
 .paper-box:hover {
-  background-color: darkcyan;
-  transform: scale(1.05);
+  background-color: #fbc02d;
 }
 
 .scissors-box:hover {
-  background-color: blueviolet;
-  transform: scale(1.05);
+  background-color: #fbc02d;
 }
 
 .hidden {
