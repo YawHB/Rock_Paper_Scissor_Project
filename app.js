@@ -27,14 +27,14 @@ function incrementPlayerPoint() {
   playerPoints++;
   console.log("increment player points: " + playerPoints);
   displayPlayerPoints();
-  if (playerPoints >= 2) {
+  if (playerPoints >= 5) {
     youWin();
   }
 }
 function incrementcomputerPoint() {
   computerPoints++;
   displaycomputerPoints();
-  if (computerPoints >= 2) {
+  if (computerPoints >= 5) {
     computerWin();
   }
 }
@@ -57,14 +57,10 @@ function youWin() {
   winningBackgroundColor();
   document.querySelector("#sound-game-won").play();
   document.querySelector("#sound-game-won").currentTime = 0;
-  document.querySelector("#player-result").style.backgroundColor = "#60b347";
-  document.querySelector("#computer-result").style.backgroundColor = "#60b347";
 }
 
 function winningBackgroundColor() {
   document.querySelector("body").style.backgroundColor = "#60b347";
-  document.querySelector("#player-result").style.backgroundColor = "#60b347";
-  document.querySelector("#computer-result").style.backgroundColor = "#60b347";
 }
 
 function computerWin() {
@@ -76,12 +72,10 @@ function computerWin() {
   loosingBackgroundColor();
   document.querySelector("#sound-game-lost").play();
   document.querySelector("#sound-game-lost").currentTime = 0;
-  document.querySelector("#computer-result").style.backgroundColor = "#EF0107";
 }
 
 function loosingBackgroundColor() {
   document.body.style.backgroundColor = "#EF0107";
-  document.querySelector("#player-result").style.backgroundColor = "#EF0107";
 }
 //Determines the computers pick
 function computerPlaying() {
@@ -117,7 +111,7 @@ function versus(playerEmoji, computerEmoji) {
 
   if (playerEmoji === computerEmoji) {
     document.querySelector("#vs").textContent = "ties with";
-    tiedColor();
+    // tiedColor();
   } else if (
     (playerEmoji === rock && computerEmoji === scissors) ||
     (playerEmoji === paper && computerEmoji === rock) ||
@@ -125,28 +119,14 @@ function versus(playerEmoji, computerEmoji) {
   ) {
     document.querySelector("#vs").textContent = "beats";
     incrementPlayerPoint();
-    playerColor();
+    // playerColor();
   } else {
     document.querySelector("#vs").textContent = "is beating by";
     incrementcomputerPoint();
-    computerColor();
+    // computerColor();
   }
 }
 
-function tiedColor() {
-  document.querySelector("#player-result").style.backgroundColor = "#034694";
-  document.querySelector("#computer-result").style.backgroundColor = "#034694";
-}
-
-function playerColor() {
-  document.querySelector("#player-result").style.backgroundColor = "#60b347";
-  document.querySelector("#computer-result").style.backgroundColor = "#EF0107";
-}
-
-function computerColor() {
-  document.querySelector("#computer-result").style.backgroundColor = "#60b347";
-  document.querySelector("#player-result").style.backgroundColor = "#EF0107";
-}
 // Shows players weapon 🪨📄✂️
 function displayPlayerEmojiResult(playerSelection) {
   const rock = document.querySelector(".rock-box");
@@ -196,7 +176,5 @@ function restartGame() {
 
   document.querySelector("h2").textContent = "GET READY";
 
-  // document.querySelector("#player-result").textContent = "？";
-  // document.querySelector("#computer-result").textContent = "？";
   document.querySelector("#vs").textContent = "";
 }

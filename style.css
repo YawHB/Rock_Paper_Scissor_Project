@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&family=VT323&display=swap");
+
 html,
 body {
   margin: 0;
@@ -10,12 +12,15 @@ body {
 header {
   padding-top: 40px;
   text-align: center;
+  font-family: "VT323", monospace;
+  font-size: 2rem;
 
   width: 100vw;
   height: 100px;
 }
 
 body {
+  font-family: "VT323", monospace;
   background-color: #292f3b;
   color: azure;
 }
@@ -31,6 +36,7 @@ body {
   border-radius: 10px;
   transition: 0.5s;
   background-color: #fbc02d;
+  font-family: "VT323", monospace;
 }
 
 #btn-play-again:hover {
@@ -45,10 +51,15 @@ body {
   align-items: center;
 }
 
+.score {
+  font-size: 25px;
+}
+
 #score-board-status > h2,
 #score-board-status > h3 {
   height: 80px;
   margin: 20px;
+  font-family: "VT323", monospace;
 }
 
 .score-container {
@@ -93,6 +104,7 @@ body {
 #vs {
   text-align: center;
   width: 120px;
+  font-size: 30px;
 }
 
 .all-boxes {
