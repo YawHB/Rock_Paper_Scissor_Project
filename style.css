@@ -1,19 +1,41 @@
 html,
 body {
+  margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 header {
+  padding-top: 40px;
   text-align: center;
+
+  width: 100vw;
+  height: 100px;
 }
 
 body {
-  background: rgb(39, 116, 174);
-  background: radial-gradient(
-    circle,
-    rgba(39, 116, 174, 1) 44%,
-    rgba(0, 48, 143, 1) 100%
-  );
+  background-color: #292f3b;
+  color: azure;
+}
+
+#btn-play-again {
+  position: absolute;
+  left: 10%;
+  transform: translate(-40%, -10%);
+  margin-left: 20px;
+  height: 5em;
+  width: 11em;
+  border: 2px solid black;
+  border-radius: 10px;
+  transition: 0.5s;
+  background-color: #fbc02d;
+}
+
+#btn-play-again:hover {
+  transform: scale(1.1) translate(-40%, -10%);
+  transition: 0.5s;
 }
 
 #score-board-status {
@@ -25,18 +47,19 @@ body {
 
 #score-board-status > h2,
 #score-board-status > h3 {
+  height: 80px;
   margin: 20px;
 }
 
 .score-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 40px;
 }
+
 .score-container p {
-  width: 50px;
+  width: 120px;
   height: 50px;
-  border: 3px solid green;
+  text-align: center;
+  border-bottom: 3px solid whitesmoke;
 }
 
 .score-container,
@@ -45,6 +68,31 @@ body {
   justify-content: center; /*horizontally centers the 3 elements inside the flexbox container 
   and makes equal space on either side of them.*/
   align-items: center;
+}
+.flexbox-container {
+  padding-bottom: 50px;
+}
+
+#round-result-reason {
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+#player-result,
+#computer-result {
+  text-align: center;
+  height: 180px;
+  width: 200px;
+  padding: 20px;
+  margin: 3%;
+  font-size: 650%;
+  border-radius: 100px;
+}
+
+#vs {
+  text-align: center;
+  width: 120px;
 }
 
 .all-boxes {
@@ -76,4 +124,8 @@ body {
 .scissors-box:hover {
   background-color: blueviolet;
   transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
 }
