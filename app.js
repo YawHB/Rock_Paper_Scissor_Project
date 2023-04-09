@@ -4,8 +4,8 @@ window.addEventListener("load", initApp);
 
 let playerPoints = 0;
 let computerPoints = 0;
-console.log("player points: " + playerPoints);
 
+//Makes the 3 elements and the play again button clickable clickable
 function initApp() {
   document.querySelector(".rock-box").addEventListener("click", playGame);
   document.querySelector(".paper-box").addEventListener("click", playGame);
@@ -15,22 +15,26 @@ function initApp() {
     .addEventListener("click", restartGame);
 }
 
+//Store players click (as a DOM element)
 function playGame() {
   document.querySelector("h2").textContent = " ";
-  const playerSelection = playerChoice(this);
+  const playerSelection = this;
+  //chooses the computers pick (as a DOM element) and stores it in a variable
   const computerSelection = computerPlaying();
 
-  /*const result = */ winnerOfRound(playerSelection, computerSelection);
+  //Call winnerOfRound with two elements)
+  winnerOfRound(playerSelection, computerSelection);
 }
 
+//Adds one point to player score
 function incrementPlayerPoint() {
   playerPoints++;
-  console.log("increment player points: " + playerPoints);
   displayPlayerPoints();
   if (playerPoints >= 5) {
     youWin();
   }
 }
+//Adds one point to computer score
 function incrementcomputerPoint() {
   computerPoints++;
   displaycomputerPoints();
@@ -39,43 +43,64 @@ function incrementcomputerPoint() {
   }
 }
 
+//Displayes player point on the screen
 function displayPlayerPoints() {
   document.querySelector("#display-player-score").textContent = playerPoints;
 }
 
+//Displayes computer point on the screen
 function displaycomputerPoints() {
   document.querySelector("#display-computer-score").textContent =
     computerPoints;
 }
 
+//When player wins:
 function youWin() {
+  //Removes the click event on the options
   document.querySelector(".rock-box").removeEventListener("click", playGame);
   document.querySelector(".paper-box").removeEventListener("click", playGame);
   document
     .querySelector(".scissors-box")
     .removeEventListener("click", playGame);
+  //Calls winning Background Color
   winningBackgroundColor();
+  //Calls victory music
+  victoryMusic();
+}
+
+//Plays victory music
+function victoryMusic() {
   document.querySelector("#sound-game-won").play();
   document.querySelector("#sound-game-won").currentTime = 0;
 }
 
+//Sets the background to green
 function winningBackgroundColor() {
   document.querySelector("body").style.backgroundColor = "#60b347";
 }
-
+//When computer wins:
 function computerWin() {
+  //Removes the click event on the options
   document.querySelector(".rock-box").removeEventListener("click", playGame);
   document.querySelector(".paper-box").removeEventListener("click", playGame);
   document
     .querySelector(".scissors-box")
     .removeEventListener("click", playGame);
+  //Calls loosing Background Color
   loosingBackgroundColor();
-  document.querySelector("#sound-game-lost").play();
-  document.querySelector("#sound-game-lost").currentTime = 0;
+  //Calls  defeated music
+  defeatedMusic();
 }
 
+//Sets the background to red
 function loosingBackgroundColor() {
   document.body.style.backgroundColor = "#EF0107";
+}
+
+// plays loosng music
+function defeatedMusic() {
+  document.querySelector("#sound-game-lost").play();
+  document.querySelector("#sound-game-lost").currentTime = 0;
 }
 //Determines the computers pick
 function computerPlaying() {
@@ -89,21 +114,16 @@ function computerPlaying() {
   }
 }
 
-//Register the players choice
-function playerChoice(playerChoice) {
-  playerChoice === document.querySelector(".rock-box") ||
-    playerChoice === document.querySelector(".paper-box") ||
-    playerChoice === document.querySelector(".scissors-box");
-
-  return playerChoice;
-}
-
+//Takes two DOM elements as parameters
 function winnerOfRound(playerSelection, computerSelection) {
+  //Calls "display Player/Computer Emoji Result" which converts the DOM elements to emojies aka text
   const playerEmoji = displayPlayerEmojiResult(playerSelection);
   const computerEmoji = displayComputerEmojiResult(computerSelection);
+  //THe DOM elements are now converted to strings and called in the "versus" function
   versus(playerEmoji, computerEmoji);
 }
 
+//dispalys the text ('ties with', 'beats' or 'is beaten by') depending on the outcome
 function versus(playerEmoji, computerEmoji) {
   const rock = "🪨";
   const paper = "📄";
@@ -118,16 +138,16 @@ function versus(playerEmoji, computerEmoji) {
     (playerEmoji === scissors && computerEmoji === paper)
   ) {
     document.querySelector("#vs").textContent = "beats";
+    //If player won round, increase his point with one
     incrementPlayerPoint();
-    // playerColor();
   } else {
-    document.querySelector("#vs").textContent = "is beating by";
+    document.querySelector("#vs").textContent = "is beaten by";
+    //If computer won round, increase its point with one
     incrementcomputerPoint();
-    // computerColor();
   }
 }
 
-// Shows players weapon 🪨📄✂️
+//Converts the player DOM element to a (emoji)string🪨✂️📄
 function displayPlayerEmojiResult(playerSelection) {
   const rock = document.querySelector(".rock-box");
   const paper = document.querySelector(".paper-box");
@@ -143,7 +163,7 @@ function displayPlayerEmojiResult(playerSelection) {
   }
 }
 
-// Shows computer weapon 🪨📄✂️
+//Converts the player DOM element to a (emoji)string 🪨✂️📄
 function displayComputerEmojiResult(computerSelection) {
   const rock = document.querySelector(".rock-box");
   const paper = document.querySelector(".paper-box");
@@ -159,22 +179,24 @@ function displayComputerEmojiResult(computerSelection) {
   }
 }
 
+//Restarts game when click on button
 function restartGame() {
-  console.log("button");
+  //sets points to zero
   playerPoints = 0;
   computerPoints = 0;
+  //Displays point set to zero
   document.querySelector("#display-player-score").textContent = 0;
   document.querySelector("#display-computer-score").textContent = 0;
 
+  //Makes the elements clickable again
   document.querySelector(".rock-box").addEventListener("click", playGame);
   document.querySelector(".paper-box").addEventListener("click", playGame);
   document.querySelector(".scissors-box").addEventListener("click", playGame);
 
-  document.querySelector("#player-result").style.backgroundColor = "";
-  document.querySelector("#computer-result").style.backgroundColor = "";
+  //Resets the background color
   document.querySelector("body").style.backgroundColor = "";
-
+  //Displays the text get ready in h2
   document.querySelector("h2").textContent = "GET READY";
-
+  //removes text between the player- and computer's selected weapons
   document.querySelector("#vs").textContent = "";
 }

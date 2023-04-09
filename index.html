@@ -13,40 +13,38 @@
       <h1>Rock, Paper, Scissors</h1>
       <button id="btn-play-again">PLAY AGAIN</button>
     </header>
-    <main>
-      <section class="score-board">
-        <article id="score-board-status">
-          <h2 id="round-result">GET READY</h2>
-          <h3 id="round-result-reason">
-            <div id="player-result"></div>
-            <div id="vs"></div>
-            <div id="computer-result"></div>
-          </h3>
-        </article>
-        <div class="score-container">
-          <div class="score-box">
-            <div class="sign" id="player-weapon"></div>
-            <p class="score" id="player-score">
-              Player: <span id="display-player-score"></span>
-            </p>
-          </div>
-          <div class="score-box">
-            <div class="sign" id="computer-weapon"></div>
-            <p class="score" id="computer-score">
-              Computer: <span id="display-computer-score"></span>
-            </p>
-          </div>
+    <section class="score-board">
+      <article id="score-board-status">
+        <h2 id="round-result">GET READY</h2>
+        <h3 id="round-result-reason">
+          <div id="player-result"></div>
+          <div id="vs"></div>
+          <div id="computer-result"></div>
+        </h3>
+      </article>
+      <div class="score-container">
+        <div class="score-box">
+          <div class="sign" id="player-weapon"></div>
+          <p class="score" id="player-score">
+            Player: <span id="display-player-score"></span>
+          </p>
         </div>
-      </section>
+        <div class="score-box">
+          <div class="sign" id="computer-weapon"></div>
+          <p class="score" id="computer-score">
+            Computer: <span id="display-computer-score"></span>
+          </p>
+        </div>
+      </div>
+    </section>
 
-      <section class="box-section">
-        <div class="flexbox-container">
-          <div class="rock-box all-boxes">🪨</div>
-          <div class="paper-box all-boxes">📄</div>
-          <div class="scissors-box all-boxes">✂️</div>
-        </div>
-      </section>
-    </main>
+    <section class="box-section">
+      <div class="flexbox-container">
+        <div class="rock-box all-boxes">🪨</div>
+        <div class="paper-box all-boxes">📄</div>
+        <div class="scissors-box all-boxes">✂️</div>
+      </div>
+    </section>
     <audio id="sound-game-won" src="./sounds/game-won.mp3"></audio>
     <audio src="./sounds/game-lost.mp3" id="sound-game-lost"></audio>
 
